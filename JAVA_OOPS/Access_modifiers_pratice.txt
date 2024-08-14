@@ -1,0 +1,43 @@
+
+
+----------------------Access modifiers PRATICE------------------------------------------
+
+
+
+
+
+import java.util.*;
+
+class G1{
+    int i=10;
+    
+    public G1()
+    {
+        int i=11;
+        System.out.println(i);
+    }
+    public void print(){
+        System.out.println(i);
+    }
+    public static void main(String[] args)
+    {
+        G1 g=new G1();
+        g.print();
+        
+    }
+}
+
+public class G2 extends G1{
+    public static void main(String[] args)
+    {
+        G2 g2=new G2();
+        g2.print();
+        g2.print();
+    
+}
+}
+
+
+     
+    
+

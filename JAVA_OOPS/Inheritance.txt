@@ -1,0 +1,77 @@
+1.What is inheritance?
+
+2.Types of Inheritance?
+
+3.Implementation of inheritance with classes?
+
+4.Implementation of inheritance with interfaces?
+
+5.Use of super keyword?
+
+
+
+
+
+
+INHERITANCE PRATICE--(It can accept only multi-level inheritance )
+---------------------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+
+ class G{
+    public void read()
+    {
+        System.out.println("Read code");
+    }
+}
+
+ class D extends G{
+    public void write()
+    {
+        System.out.println("write code");
+    }
+    
+}
+
+ class A extends D{
+     
+    public void manage()
+    {   write();
+        System.out.println("manage code");
+    }
+    public void write()
+    {
+        System.out.println("Admin code");
+    }
+}
+
+public class U{
+    public static void main(String[] args){
+        
+        G g=new G();
+       // g.read();
+        
+        D d=new D();
+       // d.read();
+       // d.write();
+        
+    A a=new A();
+      a.manage();
+      //a.read();
+    // a.write();
+    }
+    
+}
+
+INTERFACES PRATICE -(It can accept multipe and multi_level inheritance)
+--------------------------------------------------------------------------------------------------------------------------
+
+interface IG{
+    public void read();
+}
+interface ID extends IG{
+    public void write();
+}
+interface IA extends ID{
+    public void manage();
+}

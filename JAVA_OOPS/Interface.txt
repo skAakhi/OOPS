@@ -1,0 +1,67 @@
+ import java.util.*;
+ 
+ interface Laptop{
+     
+     public void paste();
+     
+     default void sec(){//-------java 1.8------------
+        common();
+          System.out.println("please code");
+     }
+     
+     static void add()//---------java 1.8--------------
+     {   common();
+          System.out.println("add code");
+         
+     }
+     
+     private static void common()//------------java 1.9--------
+     {
+         System.out.println("common code");
+     }
+ }
+ 
+ class L implements Laptop{
+     
+     public void paste()
+     {
+         System.out.println("L paste code");
+     }
+     //@override
+     public void sec(){
+         
+          System.out.println("L sec code");
+     }
+     /* public static void add(){
+          System.out.println("L add code");
+     }*/
+ }
+ 
+ class Hp implements Laptop{
+     
+     public void paste()
+     {
+         System.out.println("Hp paste code");
+     }
+      public void cap()
+     {
+         System.out.println("Hp capture code");
+     }
+     
+ }
+ 
+ 
+ public class User{
+     public static void main(String[] args)
+     {
+         L l=new L();
+         l.paste();
+         l.sec();
+        Laptop.add();
+         
+         Hp h=new Hp();
+         h.paste();
+         h.cap();
+         
+     }
+ }//-----------This is just till java 1.7
