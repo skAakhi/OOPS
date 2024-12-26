@@ -1,0 +1,276 @@
+package OOPS;
+
+public interface Interface1 {
+	
+	public void add();
+	 public void read();
+	 public int work();
+	 
+	 default void play()
+	 {
+		 System.out.println("Person is playing");
+	 }
+	 
+    public static void fight()
+	 {   watch();
+		 System.out.println("Person is fighting");
+	 }
+    
+    
+   private static void watch()
+   {   
+	   System.out.println("Watching a news");
+   }
+	
+}
+
+interface Interface2{
+	void hard();
+	void soft();
+	
+	static void smile()
+	{
+		System.out.println("2Smilling");
+	}
+	default void sad()
+	{
+		System.out.println("Two sad");
+	}
+	
+}
+
+interface Interface3{
+	void hard();
+	void soft();
+	
+	static void smile()
+	{
+		System.out.println("3Smilling");
+	}
+	default void sad()
+	{
+		System.out.println("Three sad");
+	}
+	
+}
+
+class Person implements Interface1
+{
+	public void add()
+	{
+		System.out.println("Person is adding money");
+	}
+	
+	public void read()
+	{
+		System.out.println("Person is reading money");
+	}
+	
+	public int work()
+	{
+		System.out.println("Person is working in office");
+		return 0;
+	}
+	
+	@Noterror
+	public void play()
+	{
+		System.out.println("Person is not playing");
+	}
+	
+	 public void fight()
+	 {
+		 System.out.println("Person is fight");
+	 }
+	
+	
+}
+
+//Multi-level inheritance
+class PersonTwo extends Person{// All properties and methods are inherited to PersonTwo class  
+	
+	public void add()//As your wish you can override it
+	{
+		System.out.println("PersonTwo is adding money");
+	}
+	
+}
+
+
+class PersonThree implements Interface1,Interface2{  // class can implement multiple interfaces
+
+	@Override
+	public void hard() {
+		System.out.println("PersonThree hardcopy");
+		
+	}
+
+	@Override
+	public void soft() {
+		System.out.println("PersonThree softcopy");
+		
+	}
+
+	@Override
+	public void add() {
+		System.out.println("PersonThree adding");
+		
+	}
+
+	@Override
+	public void read() {
+		System.out.println("PersonThree reading");
+		
+	}
+
+	@Override
+	public int work() {
+		System.out.println("PersonThree working");
+		return 0;
+	}
+	
+}
+
+
+class PersonFour implements Interface1,Interface2,Interface3{
+
+	@Override
+	public void hard() {
+		System.out.println("PersonFour hardcopy");
+		
+	}
+
+	@Override
+	public void soft() {
+		
+		System.out.println("PersonFour softcopy");
+		
+	}
+
+	@Override
+	public void add() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void read() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int work() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void sad() {
+		// TODO Auto-generated method stub
+		Interface2.super.sad();
+		Interface3.super.sad();
+		
+	}
+	
+}
+
+
+//use of super keyword
+class PersonFive extends PersonThree{
+	
+	@Override
+	public void hard() {
+		super.hard();
+		System.out.println("PersonFive hardcopy");
+		
+	}
+
+	@Override
+	public void soft() {
+		super.soft();
+		System.out.println("PersonFive softcopy");
+		
+	}
+	
+}
+
+abstract class Personsix implements Interface1{
+	
+	public void add()
+	{
+		System.out.println("Personsix can add");
+	}
+	
+	public abstract void read();
+	public abstract int work();
+}
+
+class customer extends Personsix{
+
+	@Override
+	public void read() {
+		System.out.println("Customer can read");
+		
+	}
+
+	@Override
+	public int work() {
+		System.out.println("Customer can work");
+		return 0;
+	}
+	
+}
+
+
+
+class user{
+    public static void main(String[] args) {
+		Person u=new Person();
+//		u.add();
+//		u.read();
+//		u.work();
+//		u.play();
+		
+		//u.fight();//calling implemented class method
+		//Interface1.fight();//If you want to call interface static method
+		
+    	
+//    	new Person().add();
+//    	new Person().read();
+		
+		
+//		PersonTwo u2=new PersonTwo();
+//		u2.add();
+//		u2.read();
+//		
+//		PersonThree u3=new PersonThree();
+//		u3.add();
+//		u3.read();
+//		u3.hard();
+//		u3.soft();
+		
+//		PersonFour u4=new PersonFour();
+//		u4.hard();
+//		u4.soft();
+//		Interface2.smile();
+//		Interface3.smile();
+//		u4.sad();// It undergone into unambigous , so to overcome that using super keyword in sad method
+//		
+		
+//		PersonFive u5=new PersonFive();
+//		
+//		u5.hard();
+//		u5.soft();
+		
+		customer c1=new customer();
+		c1.add();
+		c1.read();
+		c1.work();
+		
+		
+    	}
+}
+
+
+

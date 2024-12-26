@@ -1,0 +1,192 @@
+Example 1:
+
+// Encapsulated class
+class BankAccount {
+    // Private fields (data hiding)
+    private String accountNumber;
+    private double balance;
+    
+    // Constructor to initialize the account
+    public BankAccount(String accountNumber, double balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    // Getter method for accountNumber
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    // Setter method for accountNumber
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    // Getter method for balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // Setter method for balance
+    public void setBalance(double balance) {
+        if (balance >= 0) {
+            this.balance = balance;
+        } else {
+            System.out.println("Balance cannot be negative.");
+        }
+    }
+
+    // Method to deposit money
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrew: " + amount);
+        } else {
+            System.out.println("Invalid withdrawal amount or insufficient funds.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating a BankAccount object
+        BankAccount account = new BankAccount("12345", 1000.0);
+
+        // Accessing and modifying the account details using getter and setter methods
+        System.out.println("Account Number: " + account.getAccountNumber());
+        System.out.println("Balance: " + account.getBalance());
+
+        // Depositing money
+        account.deposit(500.0);
+        System.out.println("Updated Balance: " + account.getBalance());
+
+        // Withdrawing money
+        account.withdraw(200.0);
+        System.out.println("Updated Balance: " + account.getBalance());
+
+        // Trying to set a negative balance (this should be prevented)
+        account.setBalance(-50.0);
+        System.out.println("Balance after invalid set: " + account.getBalance());
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Example 2:
+package OOPS;
+
+public class Encapsulation {
+ 
+	private int accountNumber;
+	private double Bal;
+	
+    public Encapsulation(int acc,double Bal)
+	{
+		this.accountNumber=acc;
+		this.Bal=Bal;
+	}
+	
+	public int getAcc()
+	{
+		return accountNumber;
+	}
+	
+	public double getBal()
+	{
+		return Bal;
+	}
+	
+	private void setAcc(int accNum)
+	{
+		this.accountNumber=accNum;
+	}
+	
+	private void setBal(int bal)
+	{
+		if(bal>=0)
+		this.Bal=bal;
+		else
+			System.out.println("Balance cannot be negagtive");
+	}
+	
+	public void deposit(double amount)
+	{
+		if(amount>0) {
+		Bal+=amount;
+		System.out.println("Deposited "+ Bal);
+		}
+		else {
+			System.out.println("Invalid deposit");
+		}
+	}
+	
+	public void withdrawl(double amt)
+	{
+		if(amt>0 && amt<=Bal) {
+			Bal-=amt;
+			System.out.println("Withdrawl "+ Bal);
+		}
+		else {
+			System.out.println("Insufficient amount ");
+		}
+	}	
+}
+
+class Account{
+	public static void main(String[] args) {
+		Encapsulation acc=new Encapsulation(50100,15000);
+		
+		System.out.println(acc.getAcc());
+		System.out.println(acc.getBal());
+		
+		//cannot modify because its respective method sets as private ,if want to access then change it as into public
+//		acc.setAcc(10050);//can modify same account using setter method
+//	    acc.setBal(42000);// cannot 
+	    
+	    System.out.println(acc.getAcc());
+		System.out.println(acc.getBal());
+		
+		acc.deposit(10000);
+		acc.withdrawl(3000);
+		
+		//acc.setBal(-2);
+		//acc.withdrawl(52000);
+		
+	    
+	    
+	}
+}
+
+
+
+
+

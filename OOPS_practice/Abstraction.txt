@@ -1,0 +1,144 @@
+Example 1.
+// Abstract class
+abstract class Animal {
+    // Abstract method (does not have a body)
+    abstract void sound();
+
+    // Regular method
+    void sleep() {
+        System.out.println("This animal is sleeping.");
+    }
+}
+
+// Subclass (inherited from Animal)
+class Dog extends Animal {
+    // Providing the implementation of the abstract method
+    void sound() {
+        System.out.println("The dog barks.");
+    }
+}
+
+// Subclass (inherited from Animal)
+class Cat extends Animal {
+    // Providing the implementation of the abstract method
+    void sound() {
+        System.out.println("The cat meows.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating objects of subclasses
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+
+        // Calling methods
+        dog.sound();  // Outputs: The dog barks.
+        dog.sleep();  // Outputs: This animal is sleeping.
+
+        cat.sound();  // Outputs: The cat meows.
+        cat.sleep();  // Outputs: This animal is sleeping.
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Example 2:
+
+package OOPS;
+
+public interface Abstraction {
+	
+	void autocall();
+	void autospeak();
+	void autodrive();
+	
+	default void autosuggest()
+	{
+		System.out.println("sandra is suggesting");
+	}
+	
+	static void autosolve()
+	{
+		System.out.println("sandra is solving");
+	}
+}
+
+abstract class google implements Abstraction{
+
+	@Override
+	public void autocall() {
+		System.out.println("Google auto calling");
+		
+	}
+
+	@Override
+	public abstract void autospeak();
+
+	@Override
+	public abstract void autodrive();
+	
+	
+}
+
+
+class amazon extends google{
+
+	@Override
+	public void autospeak() {
+		System.out.println("Amazon autospeak code");
+		
+	}
+
+	@Override
+	public void autodrive() {
+		System.out.println("Amazon autodrive code");
+		
+	}
+	
+}
+
+
+class intel extends google{
+
+	@Override
+	public void autospeak() {
+		System.out.println("Intel autospeak code");
+		
+	}
+
+	@Override
+	public void autodrive() {
+		System.out.println("Intel autodrive code");
+		
+	}
+	
+}
+
+
+
+class company{
+	public static void main(String[] args) {
+		
+		google a=new amazon(); // or Abstraction a=new amazon();-->points to interface
+		a.autocall();
+		a.autodrive();
+		a.autospeak();
+		
+		google i=new intel();//or Abstraction i = new intel();--->points to interface
+		i.autocall();
+		i.autodrive();
+		i.autospeak();
+	}
+}
